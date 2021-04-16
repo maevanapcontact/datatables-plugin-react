@@ -5,6 +5,7 @@ import "./DataTables.scss";
 
 import DisplayEntries from "./DisplayEntries";
 import Search from "./Search";
+import Pagination from "./Pagination";
 
 const DataTables = ({ data }) => {
   return (
@@ -13,6 +14,12 @@ const DataTables = ({ data }) => {
         <DisplayEntries />
         <Search />
       </header>
+      <footer>
+        <div>
+          <span>Showing 1 to 10 of 50 entries</span>
+        </div>
+        <Pagination total={6} />
+      </footer>
     </div>
   );
 };
