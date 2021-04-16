@@ -11,8 +11,8 @@ const DataTables = ({ data }) => {
   return (
     <div className="dtb">
       <header>
-        <DisplayEntries />
-        <Search />
+        <DisplayEntries total={10} />
+        <Search data={data} />
       </header>
       <footer>
         <div>

@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Pagination = ({ total, displayedEntries }) => {
+const Pagination = ({ total }) => {
   const totalArray = new Array(total).fill(0);
-  console.log(totalArray);
 
   return (
     <div className="pagination">
@@ -23,7 +22,6 @@ const Pagination = ({ total, displayedEntries }) => {
 
 Pagination.propTypes = {
   total: PropTypes.number.isRequired,
-  displayedEntries: PropTypes.string.isRequired,
 };
 
 export default Pagination;
