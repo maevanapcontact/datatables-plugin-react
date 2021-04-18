@@ -5,15 +5,17 @@ import "./DataTables.scss";
 
 import DisplayEntries from "./DisplayEntries";
 import Search from "./Search";
+import Table from "./Table";
 import Pagination from "./Pagination";
 
-const DataTables = ({ data }) => {
+const DataTables = ({ labels, data }) => {
   return (
     <div className="dtb">
       <header>
         <DisplayEntries total={10} />
         <Search data={data} />
       </header>
+      <Table labels={labels} data={data} />
       <footer>
         <div>
           <span>Showing 1 to 10 of 50 entries</span>
@@ -25,7 +27,8 @@ const DataTables = ({ data }) => {
 };
 
 DataTables.propTypes = {
-  data: PropTypes.object.isRequired,
+  labels: PropTypes.array.isRequired,
+  data: PropTypes.array.isRequired,
 };
 
 export default DataTables;
