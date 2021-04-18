@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Search = ({ data }) => {
-  console.log(data);
-
   return (
     <div className="dtb-search">
       <label htmlFor="dtb-search">{`Search: `}</label>

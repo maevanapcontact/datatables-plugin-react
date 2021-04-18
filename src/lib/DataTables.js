@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import "./DataTables.scss";
@@ -9,18 +9,21 @@ import Table from "./Table";
 import Pagination from "./Pagination";
 
 const DataTables = ({ labels, data }) => {
+  const [entriesShown, setEntriesShown] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+
   return (
     <div className="dtb">
       <header>
-        <DisplayEntries total={10} />
+        <DisplayEntries value={entriesShown} handleChange={setEntriesShown} />
         <Search data={data} />
       </header>
       <Table labels={labels} data={data} />
       <footer>
         <div>
-          <span>Showing 1 to 10 of 50 entries</span>
+          <span>{`Showing 1 to ${entriesShown} of ${data.length} entries`}</span>
         </div>
-        <Pagination total={6} />
+        <Pagination total={data.length} handleClick={setCurrentPage} />
       </footer>
     </div>
   );
