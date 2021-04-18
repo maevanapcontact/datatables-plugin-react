@@ -123,4 +123,19 @@ const exampleData = [
   },
 ];
 
-export { exampleLabels, exampleData };
+let exampleLoopData = [];
+for (let i = 0; i < 126; i++) {
+  exampleLoopData.push({
+    firstName: "Lea",
+    lastName: "Regan",
+    startDate: "10/08/2015",
+    department: "Engineering",
+    dateOfBirth: "09/25/1979",
+    street: "End Street",
+    city: "Baltimore",
+    state: "PI",
+    zipCode: "79582",
+  });
+}
+
+export { exampleLabels, exampleData, exampleLoopData };

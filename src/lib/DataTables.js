@@ -12,6 +12,8 @@ const DataTables = ({ labels, data }) => {
   const [entriesShown, setEntriesShown] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
 
+  console.log(currentPage);
+
   return (
     <div className="dtb">
       <header>
@@ -23,7 +25,12 @@ const DataTables = ({ labels, data }) => {
         <div>
           <span>{`Showing 1 to ${entriesShown} of ${data.length} entries`}</span>
         </div>
-        <Pagination total={data.length} handleClick={setCurrentPage} />
+        <Pagination
+          totalEntries={data.length}
+          displayedEntries={entriesShown}
+          handleClick={setCurrentPage}
+          currentPage={currentPage}
+        />
       </footer>
     </div>
   );

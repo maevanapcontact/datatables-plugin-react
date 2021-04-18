@@ -1,27 +1,51 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Pagination = ({ total }) => {
-  const totalArray = new Array(total).fill(0);
+import { generateID } from "../utils";
+
+const Pagination = ({
+  currentPage,
+  totalEntries,
+  displayedEntries,
+  handleClick,
+}) => {
+  const nbPages = Math.ceil(totalEntries / displayedEntries);
+  const nbPagesArray = new Array(nbPages).fill(0);
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) handleClick(currentPage - 1);
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < nbPages) handleClick(currentPage + 1);
+  };
 
   return (
     <div className="pagination">
-      <button type="button">Previous</button>
-      {totalArray.map((elt, index) => (
+      <button type="button" onClick={handlePreviousPage}>
+        Previous
+      </button>
+      {nbPagesArray.map((elt, index) => (
         <button
           type="button"
-          key={"_" + Math.random().toString(36).substr(2, 9)}
+          key={generateID()}
+          onClick={() => handleClick(index + 1)}
         >
           {index + 1}
         </button>
       ))}
-      <button type="button">Next</button>
+      <button type="button" onClick={handleNextPage}>
+        Next
+      </button>
     </div>
   );
 };
 
 Pagination.propTypes = {
-  total: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  totalEntries: PropTypes.number.isRequired,
+  displayedEntries: PropTypes.number.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default Pagination;
