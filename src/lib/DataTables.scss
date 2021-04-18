@@ -1,0 +1,16 @@
+.dtb {
+  width: 100%;
+  margin: auto;
+
+  &-header,
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-table {
+    width: 100%;
+    margin: auto;
+  }
+}

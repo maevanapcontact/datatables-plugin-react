@@ -16,12 +16,12 @@ const DataTables = ({ labels, data }) => {
 
   return (
     <div className="dtb">
-      <header>
+      <header className="dtb-header">
         <DisplayEntries value={entriesShown} handleChange={setEntriesShown} />
         <Search data={data} />
       </header>
       <Table labels={labels} data={data} />
-      <footer>
+      <footer className="dtb-footer">
         <div>
           <span>{`Showing 1 to ${entriesShown} of ${data.length} entries`}</span>
         </div>

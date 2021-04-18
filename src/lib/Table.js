@@ -5,7 +5,7 @@ import { generateID } from "../utils";
 
 const Table = ({ labels, data }) => {
   return (
-    <table className="table">
+    <table className="dtb-table">
       <thead>
         <tr>
           {labels.map((label) => (
@@ -22,13 +22,6 @@ const Table = ({ labels, data }) => {
           </tr>
         ))}
       </tbody>
-      <tfoot>
-        <tr>
-          {labels.map((label) => (
-            <td key={generateID()}>{label}</td>
-          ))}
-        </tr>
-      </tfoot>
     </table>
   );
 };
