@@ -6,6 +6,7 @@ import "./DataTables.scss";
 import DisplayEntries from "./DisplayEntries";
 import Search from "./Search";
 import Table from "./Table";
+import ShowingEntries from "./ShowingEntries";
 import Pagination from "./Pagination";
 
 const DataTables = ({ labels, data }) => {
@@ -16,22 +17,20 @@ const DataTables = ({ labels, data }) => {
 
   return (
     <div className="dtb">
-      <header className="dtb-header">
-        <DisplayEntries value={entriesShown} handleChange={setEntriesShown} />
-        <Search data={data} />
-      </header>
+      <DisplayEntries value={entriesShown} handleChange={setEntriesShown} />
+      <Search data={data} />
       <Table labels={labels} data={data} />
-      <footer className="dtb-footer">
-        <div>
-          <span>{`Showing 1 to ${entriesShown} of ${data.length} entries`}</span>
-        </div>
-        <Pagination
-          totalEntries={data.length}
-          displayedEntries={entriesShown}
-          handleClick={setCurrentPage}
-          currentPage={currentPage}
-        />
-      </footer>
+      <ShowingEntries
+        minShow={1}
+        maxShow={entriesShown}
+        totalEntries={data.length}
+      />
+      <Pagination
+        totalEntries={data.length}
+        displayedEntries={entriesShown}
+        handleClick={setCurrentPage}
+        currentPage={currentPage}
+      />
     </div>
   );
 };

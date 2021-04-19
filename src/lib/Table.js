@@ -7,17 +7,21 @@ const Table = ({ labels, data }) => {
   return (
     <table className="dtb-table">
       <thead>
-        <tr>
+        <tr className="dtb-table-row">
           {labels.map((label) => (
-            <th key={generateID()}>{label}</th>
+            <th key={generateID()} className="dtb-table-header-cell">
+              {label}
+            </th>
           ))}
         </tr>
       </thead>
       <tbody>
         {data.map((elt) => (
-          <tr key={generateID()}>
+          <tr key={generateID()} className="dtb-table-row">
             {Object.values(elt).map((value) => (
-              <td key={generateID()}>{value}</td>
+              <td key={generateID()} className="dtb-table-cell">
+                {value}
+              </td>
             ))}
           </tr>
         ))}

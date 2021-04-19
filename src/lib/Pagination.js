@@ -21,7 +21,7 @@ const Pagination = ({
   };
 
   return (
-    <div className="pagination">
+    <div className="dtb-pagination">
       <button type="button" onClick={handlePreviousPage}>
         Previous
       </button>

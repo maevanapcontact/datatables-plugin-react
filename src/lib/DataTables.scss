@@ -1,16 +1,26 @@
 .dtb {
-  width: 100%;
-  margin: auto;
+  &-entries {
+    float: left;
+  }
 
-  &-header,
-  &-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  &-search {
+    float: right;
   }
 
   &-table {
-    width: 100%;
-    margin: auto;
+    clear: both;
+    border-collapse: collapse;
+
+    &-cell {
+      padding: 8px 10px;
+    }
+  }
+
+  &-showing {
+    float: left;
+  }
+
+  &-pagination {
+    float: right;
   }
 }
