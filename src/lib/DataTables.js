@@ -13,16 +13,25 @@ const DataTables = ({ labels, data }) => {
   const [entriesShown, setEntriesShown] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
 
-  console.log(currentPage);
+  const minShow = currentPage === 1 ? 1 : (currentPage - 1) * entriesShown + 1;
+  const maxShow =
+    currentPage * entriesShown < data.length
+      ? currentPage * entriesShown
+      : data.length;
+
+  const handleEntriesChange = (evt) => {
+    setEntriesShown(parseInt(evt.target.value));
+    setCurrentPage(1);
+  };
 
   return (
     <div className="dtb">
-      <DisplayEntries value={entriesShown} handleChange={setEntriesShown} />
+      <DisplayEntries value={entriesShown} handleChange={handleEntriesChange} />
       <Search data={data} />
-      <Table labels={labels} data={data} />
+      <Table labels={labels} data={data} minShow={minShow} maxShow={maxShow} />
       <ShowingEntries
-        minShow={1}
-        maxShow={entriesShown}
+        minShow={minShow}
+        maxShow={maxShow}
         totalEntries={data.length}
       />
       <Pagination

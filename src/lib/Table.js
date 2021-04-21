@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { generateID } from "../utils";
 
-const Table = ({ labels, data }) => {
+const Table = ({ labels, data, minShow, maxShow }) => {
   return (
     <table className="dtb-table">
       <thead>
@@ -16,15 +16,20 @@ const Table = ({ labels, data }) => {
         </tr>
       </thead>
       <tbody>
-        {data.map((elt) => (
-          <tr key={generateID()} className="dtb-table-row">
-            {Object.values(elt).map((value) => (
-              <td key={generateID()} className="dtb-table-cell">
-                {value}
-              </td>
-            ))}
-          </tr>
-        ))}
+        {data.map((elt, index) => {
+          if (index + 1 >= minShow && index < maxShow) {
+            return (
+              <tr key={generateID()} className="dtb-table-row">
+                {Object.values(elt).map((value) => (
+                  <td key={generateID()} className="dtb-table-cell">
+                    {value}
+                  </td>
+                ))}
+              </tr>
+            );
+          }
+          return null;
+        })}
       </tbody>
     </table>
   );
@@ -33,6 +38,8 @@ const Table = ({ labels, data }) => {
 Table.propTypes = {
   labels: PropTypes.array.isRequired,
   data: PropTypes.array.isRequired,
+  minShow: PropTypes.number.isRequired,
+  maxShow: PropTypes.number.isRequired,
 };
 
 export default Table;

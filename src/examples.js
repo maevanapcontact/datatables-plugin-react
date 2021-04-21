@@ -126,7 +126,7 @@ const exampleData = [
 let exampleLoopData = [];
 for (let i = 0; i < 56; i++) {
   exampleLoopData.push({
-    firstName: "Lea",
+    firstName: `Lea ${i}`,
     lastName: "Regan",
     startDate: "10/08/2015",
     department: "Engineering",

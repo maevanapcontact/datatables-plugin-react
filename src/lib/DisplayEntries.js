@@ -9,7 +9,7 @@ const DisplayEntries = ({ value, handleChange }) => {
         name="dtb-entries"
         id="dtb-entries-select"
         value={value}
-        onChange={(evt) => handleChange(parseInt(evt.target.value))}
+        onChange={(evt) => handleChange(evt)}
       >
         <option value="10">10</option>
         <option value="25">25</option>
