@@ -7,7 +7,7 @@ const Table = ({ labels, data, minShow, maxShow }) => {
   return (
     <table className="dtb-table">
       <thead>
-        <tr className="dtb-table-row">
+        <tr className="dtb-table-header-row">
           {labels.map((label) => (
             <th key={generateID()} className="dtb-table-header-cell">
               {label}
@@ -20,8 +20,13 @@ const Table = ({ labels, data, minShow, maxShow }) => {
           if (index + 1 >= minShow && index < maxShow) {
             return (
               <tr key={generateID()} className="dtb-table-row">
-                {Object.values(elt).map((value) => (
-                  <td key={generateID()} className="dtb-table-cell">
+                {Object.values(elt).map((value, j) => (
+                  <td
+                    key={generateID()}
+                    className={
+                      j === 0 ? "dtb-table-cell first-cell" : "dtb-table-cell"
+                    }
+                  >
                     {value}
                   </td>
                 ))}

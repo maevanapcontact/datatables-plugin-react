@@ -1,15 +1,63 @@
 .dtb {
+  width: 100%;
+  max-width: 900px;
+
   &-entries {
     float: left;
+    margin-bottom: 15px;
   }
 
   &-search {
     float: right;
+    margin-bottom: 15px;
   }
 
   &-table {
     clear: both;
     border-collapse: collapse;
+    width: 900px;
+    text-align: left;
+
+    &-header {
+      &-row {
+        border-bottom: 1px solid #000;
+      }
+
+      &-cell {
+        padding: 8px 10px;
+      }
+    }
+
+    &-row {
+      border-bottom: 1px solid #ddd;
+
+      &:hover td {
+        background: #f6f6f6;
+        cursor: default;
+      }
+
+      &:hover td.dtb-table-cell.first-cell {
+        background: #eaeaea;
+      }
+
+      &:last-of-type {
+        border-color: #000;
+      }
+
+      &:nth-child(odd) {
+        background: #f9f9f9;
+
+        & > td:first-child {
+          background: #f1f1f1;
+        }
+      }
+
+      &:nth-child(even) {
+        & > td:first-child {
+          background: #fafafa;
+        }
+      }
+    }
 
     &-cell {
       padding: 8px 10px;
@@ -18,9 +66,38 @@
 
   &-showing {
     float: left;
+    margin-top: 15px;
   }
 
   &-pagination {
     float: right;
+    margin-top: 5px;
+
+    &-btn {
+      border: none;
+      background: none;
+
+      &:first-of-type {
+        margin-right: 10px;
+      }
+
+      &:last-of-type {
+        margin-left: 10px;
+      }
+
+      &-nb {
+        border: none;
+        background: none;
+        width: 42px;
+        height: 42px;
+        border: 1px solid #fff;
+
+        &:hover {
+          border-color: #000;
+          background: #f1f1f1;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }

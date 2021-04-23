@@ -22,7 +22,11 @@ const Pagination = ({
 
   return (
     <div className="dtb-pagination">
-      <button type="button" onClick={handlePreviousPage}>
+      <button
+        type="button"
+        onClick={handlePreviousPage}
+        className="dtb-pagination-btn"
+      >
         Previous
       </button>
       {nbPagesArray.map((elt, index) => (
@@ -30,11 +34,16 @@ const Pagination = ({
           type="button"
           key={generateID()}
           onClick={() => handleClick(index + 1)}
+          className="dtb-pagination-btn-nb"
         >
           {index + 1}
         </button>
       ))}
-      <button type="button" onClick={handleNextPage}>
+      <button
+        type="button"
+        onClick={handleNextPage}
+        className="dtb-pagination-btn"
+      >
         Next
       </button>
     </div>
