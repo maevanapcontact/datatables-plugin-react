@@ -25,7 +25,11 @@ const Pagination = ({
       <button
         type="button"
         onClick={handlePreviousPage}
-        className="dtb-pagination-btn"
+        className={
+          currentPage === 1
+            ? "dtb-pagination-btn disabled"
+            : "dtb-pagination-btn"
+        }
       >
         Previous
       </button>
@@ -34,7 +38,11 @@ const Pagination = ({
           type="button"
           key={generateID()}
           onClick={() => handleClick(index + 1)}
-          className="dtb-pagination-btn-nb"
+          className={
+            currentPage === index + 1
+              ? "dtb-pagination-btn active"
+              : "dtb-pagination-btn"
+          }
         >
           {index + 1}
         </button>
@@ -42,7 +50,11 @@ const Pagination = ({
       <button
         type="button"
         onClick={handleNextPage}
-        className="dtb-pagination-btn"
+        className={
+          currentPage === nbPages
+            ? "dtb-pagination-btn disabled"
+            : "dtb-pagination-btn"
+        }
       >
         Next
       </button>

@@ -3,19 +3,62 @@ import PropTypes from "prop-types";
 
 import { generateID } from "../utils";
 
-const Table = ({ labels, data, minShow, maxShow }) => {
+const Table = ({
+  labels,
+  data,
+  minShow,
+  maxShow,
+  handleSort,
+  sort,
+  sortedData,
+}) => {
+  const { column, isDesc } = sort;
+
   return (
     <table className="dtb-table">
       <thead>
         <tr className="dtb-table-header-row">
           {labels.map((label) => (
-            <th key={generateID()} className="dtb-table-header-cell">
-              {label}
+            <th
+              key={generateID()}
+              className="dtb-table-header-cell"
+              onClick={() => handleSort(label.value)}
+            >
+              <div className="dtb-table-header-cell-content">
+                <span>{label.text}</span>
+                <div className="dtb-table-header-cell-icons">
+                  <div
+                    className={
+                      column === label.value
+                        ? !isDesc
+                          ? "dtb-table-arrow-up active"
+                          : "dtb-table-arrow-up inactive"
+                        : "dtb-table-arrow-up"
+                    }
+                  ></div>
+                  <div
+                    className={
+                      column === label.value
+                        ? isDesc
+                          ? "dtb-table-arrow-down active"
+                          : "dtb-table-arrow-down inactive"
+                        : "dtb-table-arrow-down"
+                    }
+                  ></div>
+                </div>
+              </div>
             </th>
           ))}
         </tr>
       </thead>
       <tbody>
+        {sortedData.length === 0 && (
+          <tr>
+            <td className="dtb-table-row-nomatch" colspan={labels.length}>
+              No matching records found
+            </td>
+          </tr>
+        )}
         {data.map((elt, index) => {
           if (index + 1 >= minShow && index < maxShow) {
             return (
@@ -43,8 +86,11 @@ const Table = ({ labels, data, minShow, maxShow }) => {
 Table.propTypes = {
   labels: PropTypes.array.isRequired,
   data: PropTypes.array.isRequired,
+  sortedData: PropTypes.array.isRequired,
+  sort: PropTypes.object.isRequired,
   minShow: PropTypes.number.isRequired,
   maxShow: PropTypes.number.isRequired,
+  handleSort: PropTypes.func.isRequired,
 };
 
 export default Table;

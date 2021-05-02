@@ -1,12 +1,14 @@
 import React from "react";
 
 import DataTables from "./lib/DataTables";
-import { exampleLabels, exampleLoopData } from "./examples";
+import { exampleLabels, exampleData } from "./examples";
 
-const App = () => (
-  <div className="app">
-    <DataTables labels={exampleLabels} data={exampleLoopData} />
-  </div>
-);
+const App = () => {
+  return (
+    <div className="app">
+      <DataTables labels={exampleLabels} data={exampleData} />
+    </div>
+  );
+};
 
 export default App;

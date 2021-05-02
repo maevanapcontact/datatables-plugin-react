@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import "./DataTables.scss";
+import { normalizeText } from "../utils";
 
 import DisplayEntries from "./DisplayEntries";
 import Search from "./Search";
@@ -10,32 +11,101 @@ import ShowingEntries from "./ShowingEntries";
 import Pagination from "./Pagination";
 
 const DataTables = ({ labels, data }) => {
+  const initialState = data;
   const [entriesShown, setEntriesShown] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortedData, setSortedData] = useState(initialState);
+  const [isSearching, setIsSearching] = useState(false);
+  const [sort, setSort] = useState({
+    column: "",
+    isDesc: true,
+  });
 
   const minShow = currentPage === 1 ? 1 : (currentPage - 1) * entriesShown + 1;
   const maxShow =
     currentPage * entriesShown < data.length
       ? currentPage * entriesShown
       : data.length;
+  const minFilteredShow =
+    currentPage === 1
+      ? sortedData.length > 0
+        ? 1
+        : 0
+      : (currentPage - 1) * entriesShown + 1;
+  const maxFilteredShow =
+    currentPage * entriesShown < sortedData.length
+      ? currentPage * entriesShown
+      : sortedData.length;
 
   const handleEntriesChange = (evt) => {
     setEntriesShown(parseInt(evt.target.value));
     setCurrentPage(1);
   };
 
+  const handleSort = (label) => {
+    if (sort.column === label) {
+      setSort({
+        ...sort,
+        isDesc: !sort.isDesc,
+      });
+    } else {
+      setSort({
+        column: label,
+        isDesc: false,
+      });
+    }
+
+    const sorted = sorting(label);
+    setSortedData(sorted);
+  };
+
+  const sorting = (label) => {
+    const sorted = sortedData.sort((a, b) => {
+      const labelA = normalizeText(a[label]);
+      const labelB = normalizeText(b[label]);
+
+      if (sort.isDesc) {
+        if (labelA < labelB) return -1;
+        if (labelA > labelB) return 1;
+      } else {
+        if (labelA < labelB) return 1;
+        if (labelA > labelB) return -1;
+      }
+
+      return 0;
+    });
+
+    return sorted;
+  };
+
   return (
     <div className="dtb">
       <DisplayEntries value={entriesShown} handleChange={handleEntriesChange} />
-      <Search data={data} />
-      <Table labels={labels} data={data} minShow={minShow} maxShow={maxShow} />
+      <Search
+        data={data}
+        handleDisplayedData={setSortedData}
+        handleIsSearching={setIsSearching}
+      />
+      <Table
+        labels={labels}
+        data={sortedData}
+        minShow={minShow}
+        maxShow={maxShow}
+        handleSort={handleSort}
+        sort={sort}
+        sortedData={sortedData}
+      />
       <ShowingEntries
         minShow={minShow}
         maxShow={maxShow}
         totalEntries={data.length}
+        isSearching={isSearching}
+        minFilteredShow={minFilteredShow}
+        maxFilteredShow={maxFilteredShow}
+        totalEntriesShow={sortedData.length}
       />
       <Pagination
-        totalEntries={data.length}
+        totalEntries={sortedData.length}
         displayedEntries={entriesShown}
         handleClick={setCurrentPage}
         currentPage={currentPage}
