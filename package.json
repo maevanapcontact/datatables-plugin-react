@@ -1,7 +1,19 @@
 {
   "name": "datatables-plugin-react",
-  "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "version": "1.0.0",
+  "description": "A DataTable plugin for React",
+  "keywords": [
+    "react",
+    "data",
+    "table",
+    "tables",
+    "react-table",
+    "react-data-table",
+    "react-data-table-component"
+  ],
+  "repository": "https://github.com/maevanapcontact/datatables-plugin-react",
+  "author": "maevanapcontact",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
