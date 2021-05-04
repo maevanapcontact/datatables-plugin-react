@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+# DataTable plugin for React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A ready-to-use DataTable component for React projects. It adds features to manipulate data easily.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Pagination with different number of displayed entries (10 / 25 / 50 / 100)
+- Searching accross all entries
+- Sorting by columns (ASC or DESC)
+- Dynamic information about number of displayed data
 
-### `yarn start`
+## Get started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Requirements
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React 17.0.2+
+- node-sass 5.0.0+
 
-### `yarn test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- using NPM
+  `npm install datatables-plugin-react node-sass`
 
-### `yarn build`
+- using yarn
+  `yarn add datatables-plugin-react node-sass`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To use the plugin, import it in your React component.
+It needs 2 props to work: `labels` and `data`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+_MyComponent.js_
 
-### `yarn eject`
+```javascript
+import DataTable from "datatable-plugin-react";
+import { labels, data } from "./examples";
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+const MyComponent = () => {
+  <DataTable labels={labels} data={data} />;
+};
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_example.js_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```javascript
+const exampleLabels = [
+  { text: "First Name", value: "firstName" },
+  { text: "Last Name", value: "lastName" },
+  { text: "Start Date", value: "startDate" },
+  { text: "Department", value: "department" },
+  { text: "Date of Birth", value: "dateOfBirth" },
+  { text: "Street", value: "street" },
+  { text: "City", value: "city" },
+  { text: "State", value: "state" },
+  { text: "Zip Code", value: "zipCode" },
+];
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+const exampleData = [
+  {
+    firstName: "John",
+    lastName: "Doe",
+    startDate: "04/14/2021",
+    department: "Marketing",
+    dateOfBirth: "01/01/1990",
+    street: "Main Street",
+    city: "NY",
+    state: "AL",
+    zipCode: "01800",
+  },
+  {
+    firstName: "Elisa",
+    lastName: "Tyrel",
+    startDate: "03/02/2020",
+    department: "Marketing",
+    dateOfBirth: "01/25/1988",
+    street: "Helia Street",
+    city: "San Francisco",
+    state: "AK",
+    zipCode: "85699",
+  },
+];
 
-## Learn More
+export { exampleLabels, exampleData };
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### API
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+DataTable needs 2 props:
 
-### Code Splitting
+- `labels` that defines the name of the columns
+- `data` that contains the data for the rows
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The keys of each object element in the `data` array should be the same as the `value` keys of each label element of the `labels` array.
 
-### Analyzing the Bundle Size
+_DataTable props_
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- data: array of objects containing a single row
+- labels: array of objects with the labels of the columns
 
-### Making a Progressive Web App
+_data_
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```javascript
+[
+  {
+    columnName1: "text1",
+    columnName2: "text2",
+    columnName3: "text3",
+  },
+  {
+    columnName1: "text1",
+    columnName2: "text2",
+    columnName3: "text3",
+  },
+];
+```
 
-### Advanced Configuration
+_labels_
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```javascript
+[
+  { text: "Column Name 1", value: "columnName1" },
+  { text: "Column Name 2", value: "columnName2" },
+  { text: "Column Name 3", value: "columnName3" },
+];
+```
