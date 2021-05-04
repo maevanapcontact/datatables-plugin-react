@@ -40,7 +40,7 @@ const MyComponent = () => {
 };
 ```
 
-_example.js_
+_examples.js_
 
 ```javascript
 const exampleLabels = [
@@ -87,15 +87,15 @@ export { exampleLabels, exampleData };
 
 DataTable needs 2 props:
 
-- `labels` that defines the name of the columns
 - `data` that contains the data for the rows
+- `labels` that defines the name of the columns
 
 The keys of each object element in the `data` array should be the same as the `value` keys of each label element of the `labels` array.
 
 _DataTable props_
 
-- data: array of objects containing a single row
-- labels: array of objects with the labels of the columns
+- `data` array of objects containing a single row
+- `labels` array of objects with the labels of the columns
 
 _data_
 
