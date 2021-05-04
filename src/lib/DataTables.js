@@ -10,6 +10,10 @@ import Table from "./Table";
 import ShowingEntries from "./ShowingEntries";
 import Pagination from "./Pagination";
 
+/*
+ * Main component of the library
+ * DataTable base element
+ */
 const DataTables = ({ labels, data }) => {
   const initialState = data;
   const [entriesShown, setEntriesShown] = useState(10);
@@ -37,11 +41,13 @@ const DataTables = ({ labels, data }) => {
       ? currentPage * entriesShown
       : sortedData.length;
 
+  // Handle the changes of displayed entries
   const handleEntriesChange = (evt) => {
     setEntriesShown(parseInt(evt.target.value));
     setCurrentPage(1);
   };
 
+  // Handle the sorting data (column + asc / desc)
   const handleSort = (label) => {
     if (sort.column === label) {
       setSort({
@@ -59,6 +65,7 @@ const DataTables = ({ labels, data }) => {
     setSortedData(sorted);
   };
 
+  // Sorting system based on label
   const sorting = (label) => {
     const sorted = sortedData.sort((a, b) => {
       const labelA = normalizeText(a[label]);

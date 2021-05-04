@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/*
+ * Select element to chose the number of rows to display
+ */
 const DisplayEntries = ({ value, handleChange }) => {
   return (
     <div className="dtb-entries">

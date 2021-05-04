@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 
 import { generateID } from "../utils";
 
+/*
+ * Table displaying the entries
+ */
 const Table = ({
   labels,
   data,
@@ -18,6 +21,7 @@ const Table = ({
     <table className="dtb-table">
       <thead>
         <tr className="dtb-table-header-row">
+          {/* First row of labels*/}
           {labels.map((label) => (
             <th
               key={generateID()}
@@ -51,7 +55,9 @@ const Table = ({
           ))}
         </tr>
       </thead>
+
       <tbody>
+        {/* if the table is empty */}
         {sortedData.length === 0 && (
           <tr>
             <td className="dtb-table-row-nomatch" colspan={labels.length}>
@@ -59,6 +65,7 @@ const Table = ({
             </td>
           </tr>
         )}
+        {/* Display only the data in the current page */}
         {data.map((elt, index) => {
           if (index + 1 >= minShow && index < maxShow) {
             return (

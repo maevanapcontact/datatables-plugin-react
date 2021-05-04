@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 
 import { generateID } from "../utils";
 
+/*
+ * Handle number of pages based on entries
+ * Handle navigation between pages
+ */
 const Pagination = ({
   currentPage,
   totalEntries,
@@ -12,10 +16,12 @@ const Pagination = ({
   const nbPages = Math.ceil(totalEntries / displayedEntries);
   const nbPagesArray = new Array(nbPages).fill(0);
 
+  // handle the click to the previous page
   const handlePreviousPage = () => {
     if (currentPage > 1) handleClick(currentPage - 1);
   };
 
+  // handle the click to the next page
   const handleNextPage = () => {
     if (currentPage < nbPages) handleClick(currentPage + 1);
   };
@@ -33,6 +39,8 @@ const Pagination = ({
       >
         Previous
       </button>
+
+      {/* Create a button per page */}
       {nbPagesArray.map((elt, index) => (
         <button
           type="button"
@@ -47,6 +55,7 @@ const Pagination = ({
           {index + 1}
         </button>
       ))}
+
       <button
         type="button"
         onClick={handleNextPage}

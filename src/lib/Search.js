@@ -3,10 +3,13 @@ import PropTypes from "prop-types";
 
 import { normalizeText } from "../utils";
 
+/*
+ * Search a string accross all the entries
+ */
 const Search = ({ data, handleDisplayedData, handleIsSearching }) => {
+  // Filter the data to display based on typed value
   const handleSearch = (evt) => {
     const value = normalizeText(evt.target.value);
-
     if (value.length > 0) {
       const dataToDisplay = data.filter((elt) => {
         const values = Object.values(elt)

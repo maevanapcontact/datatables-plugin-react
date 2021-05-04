@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 
 import "./DataTables.scss";
 
+/*
+ * Display dynamically the number of entries
+ * Based on pages, total number of entries, search result
+ */
 const ShowingEntries = ({
   minShow,
   maxShow,
