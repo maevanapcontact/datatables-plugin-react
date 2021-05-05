@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { generateID } from "../utils";
+import { generateID } from "./utils";
 
 /*
  * Handle number of pages based on entries

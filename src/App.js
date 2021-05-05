@@ -1,6 +1,6 @@
 import React from "react";
 
-import DataTables from "./lib/DataTables";
+import DataTables from "./DataTables";
 import { exampleLabels, exampleData } from "./examples";
 
 const App = () => {

@@ -1,6 +1,6 @@
 {
   "name": "datatables-plugin-react",
-  "version": "1.2.1",
+  "version": "1.4.1",
   "description": "A DataTable plugin for React",
   "keywords": [
     "react",
@@ -12,37 +12,31 @@
     "react-data-table-component"
   ],
   "author": "maevanapcontact",
-  "main": "src/lib/index.js",
-  "module": "src/lib/index.js",
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/maevanapcontact/datatables-plugin-react"
-  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "babel": {
     "presets": [
-      "@babel/preset-react"
+      "react",
+      "env",
+      "stage-2"
     ]
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "node-sass": "^5.0.0",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "web-vitals": "^1.0.1"
+    "react-scripts": "4.0.3",
+    "sass": "^1.32.12",
+    "web-vitals": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "build": "SET NODE_ENV=production && rm -rf dist && mkdir dist && npx babel src/DataTables --out-dir dist --copy-files",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "publish:npm": "rm -rf dist && mkdir dist &&  babel src/lib -d dist --copy-files"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -63,8 +57,9 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.16",
-    "@babel/preset-react": "^7.13.13",
-    "babel-cli": "^6.26.0"
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
   }
 }

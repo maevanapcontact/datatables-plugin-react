@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { normalizeText } from "../utils";
+import { normalizeText } from "./utils";
 
 /*
  * Search a string accross all the entries
