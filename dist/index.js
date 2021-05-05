@@ -18,25 +18,25 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 require("./DataTables.scss");
 
-var _utils = require("../utils");
+var _utils = require("./utils");
 
-var _DisplayEntries = require("../DisplayEntries");
+var _DisplayEntries = require("./DisplayEntries");
 
 var _DisplayEntries2 = _interopRequireDefault(_DisplayEntries);
 
-var _Search = require("../Search");
+var _Search = require("./Search");
 
 var _Search2 = _interopRequireDefault(_Search);
 
-var _Table = require("../Table");
+var _Table = require("./Table");
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _ShowingEntries = require("../ShowingEntries");
+var _ShowingEntries = require("./ShowingEntries");
 
 var _ShowingEntries2 = _interopRequireDefault(_ShowingEntries);
 
-var _Pagination = require("../Pagination");
+var _Pagination = require("./Pagination");
 
 var _Pagination2 = _interopRequireDefault(_Pagination);
 
