@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import "./DataTables.scss";
-import { normalizeText } from "../utils";
+import { normalizeText } from "./utils";
 
-import DisplayEntries from "../DisplayEntries";
-import Search from "../Search";
-import Table from "../Table";
-import ShowingEntries from "../ShowingEntries";
-import Pagination from "../Pagination";
+import DisplayEntries from "./DisplayEntries";
+import Search from "./Search";
+import Table from "./Table";
+import ShowingEntries from "./ShowingEntries";
+import Pagination from "./Pagination";
 
 /*
  * Main component of the library
