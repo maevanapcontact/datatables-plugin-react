@@ -1,6 +1,6 @@
 {
   "name": "datatables-plugin-react",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A DataTable plugin for React",
   "keywords": [
     "react",
@@ -42,7 +42,7 @@
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "publish:npm": "rm -rf dist && mkdir dist &&  babel src/components -d dist --copy-files"
+    "publish:npm": "rm -rf dist && mkdir dist &&  babel src/lib -d dist --copy-files"
   },
   "eslintConfig": {
     "extends": [
