@@ -60,7 +60,7 @@ const Table = ({
         {/* if the table is empty */}
         {sortedData.length === 0 && (
           <tr>
-            <td className="dtb-table-row-nomatch" colspan={labels.length}>
+            <td className="dtb-table-row-nomatch" colSpan={labels.length}>
               No matching records found
             </td>
           </tr>

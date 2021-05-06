@@ -81,7 +81,7 @@ var Table = function Table(_ref) {
         null,
         _react2.default.createElement(
           "td",
-          { className: "dtb-table-row-nomatch", colspan: labels.length },
+          { className: "dtb-table-row-nomatch", colSpan: labels.length },
           "No matching records found"
         )
       ),
