@@ -14,15 +14,14 @@ A ready-to-use DataTable component for React projects. It adds features to manip
 ### Requirements
 
 - React 17.0.2+
-- node-sass 5.0.0+
 
 ### Installation
 
 - using NPM
-  `npm install datatables-plugin-react node-sass`
+  `npm install datatables-plugin-react`
 
 - using yarn
-  `yarn add datatables-plugin-react node-sass`
+  `yarn add datatables-plugin-react`
 
 ### Usage
 
