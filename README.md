@@ -11,6 +11,10 @@ A ready-to-use DataTable component for React projects. It adds features to manip
 
 ## Get started
 
+### Download
+
+[datatables-plugin-react](https://www.npmjs.com/package/datatables-plugin-react)
+
 ### Requirements
 
 - React 17.0.2+
@@ -31,7 +35,7 @@ It needs 2 props to work: `labels` and `data`
 _MyComponent.js_
 
 ```javascript
-import DataTable from "datatable-plugin-react";
+import DataTables from "datatables-plugin-react";
 import { labels, data } from "./examples";
 
 const MyComponent = () => {
