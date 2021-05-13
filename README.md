@@ -39,7 +39,7 @@ import DataTables from "datatables-plugin-react";
 import { labels, data } from "./examples";
 
 const MyComponent = () => {
-  <DataTable labels={labels} data={data} />;
+  <DataTables labels={labels} data={data} />;
 };
 ```
 

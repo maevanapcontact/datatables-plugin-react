@@ -1,6 +1,6 @@
 {
   "name": "datatables-plugin-react",
-  "version": "1.7.1",
+  "version": "1.8.1",
   "description": "A DataTable plugin for React",
   "keywords": [
     "react",
@@ -11,6 +11,10 @@
     "react-data-table",
     "react-data-table-component"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maevanapcontact/datatables-plugin-react"
+  },
   "author": "maevanapcontact",
   "main": "dist/index.js",
   "module": "dist/index.js",
